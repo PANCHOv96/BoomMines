@@ -68,7 +68,7 @@ export default function ConfigBoard({amountUser,start,handleStartGame,handleWinn
                 </div>
             </div>
             <Button callback={() => {!start ? handleStartGame(minesInput,amountInput) : handleWinner(true)}}>
-                <div className="Input red">
+                <div className={`Input ${!start ? 'red' : 'white'}`}>
                         {!start ? 'START GAME' : 'STOP GAME'} 
                 </div>
             </Button>

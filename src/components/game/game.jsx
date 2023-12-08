@@ -50,10 +50,11 @@ export default function Game(){
     },[winner]);
 
     return(
-        <>
-            {console.log('GAME')}
-            <ConfigBoard amountUser={amountUser} start={start} handleStartGame={handleStartGame} handleWinner={handleWinner}/>
+        <div className="grid">
+            <div className="pos-2">
+                <ConfigBoard amountUser={amountUser} start={start} handleStartGame={handleStartGame} handleWinner={handleWinner}/>
+            </div>
             <Board mines={mines} start={start} handleWinner={handleWinner} handleFoundDiamond={handleFoundDiamond}/>
-        </>
+        </div>
     )
 }
