@@ -28,12 +28,24 @@ nav h1{
     justify-content: center;
     align-items: center;
 }
+/* GRID */
+.grid{
+    display: grid;
+    gap: 0.3rem;
+}
+.grid-5{
+    grid-template-columns: repeat(5,1fr);
+}
+.pos-2{
+    grid-row: 2;
+}
 /* CONFIG BOARD */
 .ConfigBoard p{
     color: #FFF;
     font-size: 2rem;
     font-weight: 300;
     text-align: center;
+    margin: 1rem 0;
 }
 .ConfigBoard p span{
     font-size: 1rem;
@@ -45,7 +57,7 @@ nav h1{
     border: 1px solid rgba(147, 172, 211, 0.18);
     background: #0C111E;
     padding: 1rem 0;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     line-height: normal;
     text-align: center;
     font-style: normal;
@@ -66,14 +78,47 @@ nav h1{
     font-size: 1.5rem;
 }
 .Input a {
-    color: white;
+    color: #EAEAEA;
     text-decoration: none;
     margin: 0 1rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .red{
     background: #D70840;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.white{
+    background-color: #EAEAEA;
+    color: #D70840;
 }
 /* BOARD */
-
-
+.imgBoard{
+    width: 100%;
+}
+/* FOOTER */
+.Footer{
+    margin: 0 auto;
+}
+.footer-social{
+    text-align: center;
+    margin: 1rem auto;
+}
+.icons-redes{
+    width: 3rem;
+}
+.designer-developer{
+    color: #FFF;
+    font-style: normal;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+    gap: 10px;
+}
+.designer-developer h3{
+    margin: 0 auto;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
