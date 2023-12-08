@@ -1,6 +1,6 @@
-import { useState ,useEffect} from "react";
-import Button from "../buttons/button";
-import {MineAleatory} from '../../logics/logics'
+import { useState } from "react";
+import Button from "../buttons/button"
+import Mine from '../../assets/mine.svg'
 
 export default function ConfigBoard({amountUser,start,handleStartGame,handleWinner}){
     const [minesInput,setMinesInput] = useState(1);
@@ -35,20 +35,25 @@ export default function ConfigBoard({amountUser,start,handleStartGame,handleWinn
         <div className="ConfigBoard">
             {console.log('ConfigBoard')}
             <p>${amountUser} <span>Demo</span></p>
-            <div>
-                <label>Number of mines</label>
+            <div className="Input flex">
                 <div>
-                    {minesInput}
-                    <input type="range"  min={1} max={24} step={1} value={minesInput} onChange={handleInputRange} disabled={start}/>
+                    <img src={Mine} alt="Mine SVG" />
+                </div>
+                <div>
+                    <label>Number of mines</label>
+                    <div className="flex">
+                        {minesInput}
+                        <input type="range"  min={1} max={24} step={1} value={minesInput} onChange={handleInputRange} disabled={start}/>
+                    </div>
                 </div>
             </div>
-            <div>
+            <div className="Input">
                 <label>Amount</label>
                 <div>
-                    <input type="number" min={1} pattern="^[0-9]+" value={amountInput} onChange={handleInputNumber} disabled={start}/>
-                    <div>
+                    <input type="number" min={0} pattern="^[0-9]+" value={amountInput} onChange={handleInputNumber} disabled={start}/>
+                    <div className="flex center">
                         <Button callback={handleMin}>
-                            <a href="#">min</a>
+                            <a href="#">Min</a>
                         </Button>
                         <Button callback={handleDiv2}>
                             <a href="#">/2</a>
@@ -57,13 +62,15 @@ export default function ConfigBoard({amountUser,start,handleStartGame,handleWinn
                             <a href="#">x2</a>
                         </Button>
                         <Button callback={handleMax}>
-                            <a href="#">max</a>
+                            <a href="#">Max</a>
                         </Button>
                     </div>
                 </div>
             </div>
             <Button callback={() => {!start ? handleStartGame(minesInput,amountInput) : handleWinner(true)}}>
-                {!start ? 'START GAME' : 'STOP GAME'} 
+                <div className="Input red">
+                        {!start ? 'START GAME' : 'STOP GAME'} 
+                </div>
             </Button>
         </div>
     )

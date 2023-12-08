@@ -3,6 +3,7 @@ import ConfigBoard from "./configboard"
 import Board from "./board";
 import { calculatePrize } from '../../logics/logics'
 
+
 export default function Game(){
     const [amountUser,setAmountUser] = useState(1000);
     const [start,setStart] = useState(false);
@@ -12,6 +13,7 @@ export default function Game(){
     const [amountBet,setAmountBet] = useState(1);
 
     function handleStartGame(mines,amountBet){
+        if(amountBet == 0 || amountUser < amountBet) return 
         setMines(mines)
         setStart(true);
         setFoundDiamond(0)
@@ -34,8 +36,7 @@ export default function Game(){
 
     useEffect(()=>{
         if(winner != null){
-            let result = calculatePrize(mines,foundDiamond) * amountBet
-            console.log(result)
+            let result = winner ? calculatePrize(mines,foundDiamond) * amountBet : 0;
             let total = result + amountUser
             setAmountUser(total);
         }

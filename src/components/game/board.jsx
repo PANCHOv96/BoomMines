@@ -1,5 +1,4 @@
 import Button from "../buttons/button"
-import { DataTypeBoard } from '../../logics/constants'
 import { MineAleatory, searchRemainingDiamond , searchMines} from '../../logics/logics'
 import { useState ,useEffect} from "react";
 
