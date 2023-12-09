@@ -1,25 +1,21 @@
-import Moon from '../../assets/moon.svg'
-import Star from "../../assets/star.svg"
 import Button from '../buttons/button'
+import Logo from '../../assets/Logo.svg'
+import { useState } from 'react'
 
 export default function Navbar(){
+    const [darkMode,setDarkMode] = useState(false)
+
+    function cambiarColor(){
+        darkMode ? document.body.classList.remove('dark') : document.body.classList.add('dark')
+        setDarkMode(!darkMode)
+    }
+
     return(
         <nav>
-            <h1>Boom-Mines</h1>
-            <div className='Buttons'>
-                <Button callback={(e)=>{
-                    e.preventDefault();
-                    alert('MOON')
-                }}>
-                    <img src={Moon} alt="Moon"/>
-                </Button>
-                <Button callback={(e)=>{
-                    e.preventDefault();
-                    alert('STAR')
-                }}>
-                    <img src={Star} alt="Star" style={{marginLeft:'1rem'}}/>
-                </Button>
-            </div>
+            <img src={Logo} className='Logo'/>
+            <Button callback={cambiarColor}>
+                <span className='Emoji Dark-mode'>{darkMode ? '🌞' : '🌚'}</span>
+            </Button>
         </nav>
     )
 }

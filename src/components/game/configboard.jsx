@@ -1,43 +1,48 @@
 import { useState } from "react";
 import Button from "../buttons/button"
-import Mine from '../../assets/mine.svg'
+import { DataTypeBoard } from "../../logics/constants";
 
 export default function ConfigBoard({amountUser,start,handleStartGame,handleWinner}){
     const [minesInput,setMinesInput] = useState(1);
     const [amountInput,setAmountInput] = useState(1);
 
     function handleInputRange(e){
+        e.preventDefault();
         setMinesInput(e.target.value)
     }
     function handleInputNumber(e){
+        e.preventDefault();
         setAmountInput(e.target.value)
     }
-    function handleMin(){
+    function handleMin(e){
+        e.preventDefault();
         if(start) return
         setAmountInput(1);
     }
-    function handleDiv2(){
+    function handleDiv2(e){
+        e.preventDefault();
         if(start) return
         let newAmount = Math.round(amountInput / 2);
         setAmountInput(newAmount>0 ? newAmount : 1);
     }
-    function handleX2(){
+    function handleX2(e){
+        e.preventDefault();
         if(start) return
         let newAmount = Math.round(amountInput * 2);
         setAmountInput(newAmount<=amountUser ? newAmount : amountUser);
     }
-    function handleMax(){
+    function handleMax(e){
+        e.preventDefault();
         if(start) return
         setAmountInput(amountUser);
     }
 
     return(
         <div className="ConfigBoard">
-            {console.log('ConfigBoard')}
             <p>${amountUser} <span>Demo</span></p>
             <div className="Input flex">
                 <div>
-                    <img src={Mine} alt="Mine SVG" />
+                    <span className="Emoji">{DataTypeBoard.mine}</span>
                 </div>
                 <div>
                     <label>Number of mines</label>
@@ -53,16 +58,16 @@ export default function ConfigBoard({amountUser,start,handleStartGame,handleWinn
                     <input type="number" min={0} pattern="^[0-9]+" value={amountInput} onChange={handleInputNumber} disabled={start}/>
                     <div className="flex center">
                         <Button callback={handleMin}>
-                            <a href="#">Min</a>
+                            <span>Min</span>
                         </Button>
                         <Button callback={handleDiv2}>
-                            <a href="#">/2</a>
+                            <span>/2</span>
                         </Button>
                         <Button callback={handleX2}>
-                            <a href="#">x2</a>
+                            <span>x2</span>
                         </Button>
                         <Button callback={handleMax}>
-                            <a href="#">Max</a>
+                            <span>Max</span>
                         </Button>
                     </div>
                 </div>

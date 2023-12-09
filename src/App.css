@@ -2,21 +2,42 @@
 nav{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
+    margin-bottom: 1rem;
 }
 nav h1{
     color: #FFF;
     font-size: 2rem;
     font-weight: 300;
+    margin: 0 0 0.5rem 0
+}
+.Logo{
+    width: 10rem;
+}
+.Emoji.Dark-mode{
+    font-size: 2rem;
+}
+/* EMOJI */
+.Emoji{
+    font-size: 3rem;
+    text-align: center;
+    display: block;
+}
+@media (min-width:1280px){
+    .Emoji{
+        font-size: 5rem;
+    }
 }
 /* BUTTONS */
-.Buttons{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
 .Button{
     cursor: pointer;
+    justify-self: center;
+}
+.Button .Emoji{
+    /* border: 1px solid rgba(147, 172, 211, 0.18);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
+    border-radius: 0.9375rem;
+    padding: 0rem;
 }
 /* FLEX */
 .flex{
@@ -31,15 +52,84 @@ nav h1{
 /* GRID */
 .grid{
     display: grid;
-    gap: 0.3rem;
+}
+@media (min-width:768px){
+    .grid{
+        margin: 0 auto;
+    }
+}
+@media (min-width: 736px) and (orientation:landscape),
+(min-width:1024px) and (orientation: portrait){
+    .grid{
+        gap: 0.2rem;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width:768px){
+    .grid{
+        gap: 2rem;
+    }
 }
 .grid-5{
     grid-template-columns: repeat(5,1fr);
+    background-color: var(--backgroundBoard);
+    /* width: auto; */
+}
+@media (min-width: 736px) and (orientation:landscape),
+(min-width:1024px) and (orientation: portrait){
+    .grid-5{
+        grid-row: 2;
+    }
+}
+@media (min-width:1280px){
+    .grid-5{
+        grid-column: 2;
+        grid-row: 1/3;
+    }
 }
 .pos-2{
     grid-row: 2;
+    align-self: center;
+}
+.pos-3{
+    grid-row: 3;
+    align-self: end;
+}
+@media (min-width: 736px) and (orientation:landscape),
+(min-width:1024px) and (orientation: portrait){
+    .pos-2{
+        grid-row: 1;
+        grid-column:1/3;
+    }
+    .pos-3{
+        grid-row: 2;
+    }
+}
+@media (min-width:1280px){
+    .pos-2{
+        grid-row: 1/2;
+        grid-column:1;
+    }
+    .pos-3{
+        grid-row: 2;
+        grid-column: 1;
+    }
 }
 /* CONFIG BOARD */
+.ConfigBoard{
+    width: 100%;
+}
+@media (min-width:768px) and (orientation:portrait){
+    .ConfigBoard{
+        width: 50%;
+        margin: 0 auto;
+    }
+}
+@media (min-width:1024px){
+    .ConfigBoard{
+        width: 100%;
+    }
+}
 .ConfigBoard p{
     color: #FFF;
     font-size: 2rem;
@@ -50,12 +140,13 @@ nav h1{
 .ConfigBoard p span{
     font-size: 1rem;
     font-weight: 600;
-    color: var(--color-red,red);
+    color: black;
 }
 .Input{
     border-radius: 0.9375rem;
-    border: 1px solid rgba(147, 172, 211, 0.18);
-    background: #0C111E;
+    /* border: 1px solid rgba(147, 172, 211, 0.18); */
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: var(--colorInput);
     padding: 1rem 0;
     margin: 0.5rem 0;
     line-height: normal;
@@ -77,22 +168,27 @@ nav h1{
     color: #EAEAEA;
     font-size: 1.5rem;
 }
-.Input a {
+.Input span {
     color: #EAEAEA;
     text-decoration: none;
     margin: 0 1rem;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
+}
+.Input .Emoji{
+    font-size: 2rem;
 }
 .red{
-    background: #D70840;
+    background: var(--colorButton);
 }
 .white{
     background-color: #EAEAEA;
-    color: #D70840;
+    color: var(--colorButton);
 }
 /* BOARD */
-.imgBoard{
-    width: 100%;
+.board{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 0.9375rem;
+    padding: .5rem;
 }
 /* FOOTER */
 .Footer{
@@ -121,4 +217,65 @@ nav h1{
     margin: 0 auto;
     font-size: 0.875rem;
     font-weight: 700;
+}
+.flex-footer{
+    flex-direction: column;
+    height: 90vh;
+    justify-content: space-between;
+}
+/* INFO */
+.Info{
+    /* background-color: red; */
+    font-size: 1rem;
+}
+.Info .Emoji{
+    font-size: 1rem;
+}
+@media (min-width: 736px){
+    .Info .Emoji{
+        font-size: 2rem;
+    }
+}
+@media (min-width:1280px){
+    .Info .Emoji{
+        font-size: 5rem;
+    }
+}
+/* LINK REPO */
+.Link-repo{
+    text-align: right;
+    border-bottom: 1px solid #EAEAEA;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+.Link-repo a{
+    font-weight: 300;
+}
+/* WINNER MODAL */
+.Winner-modal {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    gap: 3rem;
+    
+}
+.Winner-modal .Input{
+    width: 20rem;
+}
+.Winner{
+    font-weight: 300;
+    font-size: 3rem;
+    color: green;
+}
+.Loser{
+    font-weight: 100;
+    font-size: 3rem;
+    color: red;
 }

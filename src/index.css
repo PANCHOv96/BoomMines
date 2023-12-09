@@ -6,18 +6,27 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --color-red: #D70840
+  --background: #b32922;
+  --colorButton: #942620;
+  --colorInput: #e9524a;
+  --backgroundBoard: #0e7490;
 }
 
+.dark{
+  --background: #083344;
+  --colorButton: #164e63;
+  --colorInput: #0e7490;
+  --backgroundBoard: #f9b49e;
+}
 
 body {
   margin: 0 auto;
   max-width: 1920px;
   width: 95%;
+  background-color: var(--background);
 }

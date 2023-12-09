@@ -1,9 +1,6 @@
 import Button from "../buttons/button"
 import { MineAleatory, searchRemainingDiamond , searchMines} from '../../logics/logics'
 import { useState ,useEffect} from "react";
-import Diamante from '../../assets/Diamante.svg'
-import Diamante2 from '../../assets/Diamante2.svg'
-import Mine from '../../assets/mine2.svg'
 import { DataTypeBoard } from "../../logics/constants";
 
 export default function Board({mines,start,handleWinner,handleFoundDiamond}){
@@ -15,11 +12,11 @@ export default function Board({mines,start,handleWinner,handleFoundDiamond}){
     function handleClick(e){
         e.preventDefault();
         if(start && board[e.target.id].check == false){
-            handleFoundDiamond();
             let newBoard = [...board]
             newBoard[e.target.id].check = true
             setboard(newBoard);
             if(!searchMines(newBoard,e.target.id)){
+                handleFoundDiamond();
                 if(searchRemainingDiamond(board)){
                     handleWinner(true);
                 }
@@ -36,23 +33,21 @@ export default function Board({mines,start,handleWinner,handleFoundDiamond}){
         }
     },[start]);
 
-    function handleSVG({check,type}){
-        if (!check) return Diamante
-        return type == DataTypeBoard.diamond ? Diamante2 : Mine ;
-    }
-
     return(
         <>
-            {console.log('Board')}
-            <div className="grid grid-5">
-            {board.map( (x,index) => {
-                return(
-                        <Button callback={handleClick} key={index}>
-                            <img src={handleSVG(x)} alt="" className="imgBoard" id={index}/>
+            <div className="grid grid-5 board">
+                {board.map( (x,index) => {
+                    return(
+                        <Button callback={handleClick} key={index}>         
+                            <span className="Emoji" id={index}>{
+                                !x.check ? DataTypeBoard.stone :
+                                x.type == DataTypeBoard.mine ?  DataTypeBoard.mine : DataTypeBoard.diamond
+                            }</span>
                         </Button>
-                )
-            })}
+                    )
+                })}
             </div>
         </>
     )
 }
+
