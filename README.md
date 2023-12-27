@@ -33,7 +33,7 @@ Para implementar este proyecto, ejecute
 
 ```bash
   cd BoomMines
-  npm run start
+  npm run dev
 ```
 ## Demo
 
