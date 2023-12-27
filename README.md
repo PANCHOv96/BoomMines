@@ -3,7 +3,6 @@
 
 web desarrollada en react con la idea de aprender el manejo del hook useEffect . BoomMines consiste en seleccionar una celda y esperar una respuesta para ver sigues vivo o no , mientras mas veces puedas llegar a la luna mas ganaras eso si la ambición te puede llevar a perderlo todo...
 
-
 ## Características Aprendidas
 
 - Modo Light/dark ✅
@@ -11,11 +10,13 @@ web desarrollada en react con la idea de aprender el manejo del hook useEffect .
 - Hooks UseEffect ✅
 - Hooks UseState ✅
 
-
 ## Screenshots
 
-![App Screenshot](https://raw.githubusercontent.com/PANCHOv96/ApiClima/blob/main/public/logo192.png)
-
+![App Screenshot](https://github.com/PANCHOv96/BoomMines/blob/main/src/assets/BoomMine.png)
+![App Screenshot](https://github.com/PANCHOv96/BoomMines/blob/main/src/assets/BoomMine2.png)
+![App Screenshot](https://github.com/PANCHOv96/BoomMines/blob/main/src/assets/BoomMine3.png)
+![App Screenshot](https://github.com/PANCHOv96/BoomMines/blob/main/src/assets/BoomMine4.png)
+![App Screenshot](https://github.com/PANCHOv96/BoomMines/blob/main/src/assets/BoomMine5.png)
 
 ## Instalación 
 
@@ -43,13 +44,9 @@ https://boom-mines.vercel.app/
 
 **Client:** React, Vanilla CSS
 
-
-
-
 ## Personas Desarrolladoras del Proyecto
 
 - [@panchov96](https://github.com/PANCHOv96)
-
 
 ## Feedback
 
